@@ -71,6 +71,8 @@ bool Robot::initXml(TiXmlElement *root)
   for (xit = root->FirstChildElement("transmission"); xit;
        xit = xit->NextSiblingElement("transmission"))
   {
+    // skip "new" transmission style elements for now
+    if(!xit->Attribute("type")) continue;
     std::string type(xit->Attribute("type"));
     boost::shared_ptr<Transmission> t;
     try {
