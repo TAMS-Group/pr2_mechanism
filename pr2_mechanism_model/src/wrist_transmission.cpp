@@ -114,7 +114,7 @@ bool WristTransmission::initXml(TiXmlElement *elt, Robot *robot)
     ROS_ERROR("WristTransmission did not specify joint name");
     return false;
   }
-  const boost::shared_ptr<const urdf::Joint> joint = robot->robot_model_.getJoint(joint_name);
+  urdf::JointConstSharedPtr joint = robot->robot_model_.getJoint(joint_name);
 
   if (!joint)
   {
@@ -155,7 +155,7 @@ bool WristTransmission::initXml(TiXmlElement *elt, Robot *robot)
     ROS_ERROR("WristTransmission did not specify joint name");
     return false;
   }
-  const boost::shared_ptr<const urdf::Joint> joint2 = robot->robot_model_.getJoint(joint_name);
+  urdf::JointConstSharedPtr joint2 = robot->robot_model_.getJoint(joint_name);
 
   if (!joint2)
   {

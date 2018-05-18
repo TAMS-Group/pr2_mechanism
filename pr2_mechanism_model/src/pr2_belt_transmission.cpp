@@ -54,7 +54,7 @@ bool PR2BeltCompensatorTransmission::initXml(TiXmlElement *elt, Robot *robot)
     return false;
   }
 
-  const boost::shared_ptr<const urdf::Joint> joint = robot->robot_model_.getJoint(joint_name);
+  urdf::JointConstSharedPtr joint = robot->robot_model_.getJoint(joint_name);
   if (!joint)
   {
     ROS_ERROR("PR2BeltCompensatorTransmission could not find joint named \"%s\"", joint_name);

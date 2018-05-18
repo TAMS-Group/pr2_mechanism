@@ -59,7 +59,7 @@ bool SimpleTransmission::initXml(TiXmlElement *elt, Robot *robot)
     return false;
   }
 
-  const boost::shared_ptr<const urdf::Joint> joint = robot->robot_model_.getJoint(joint_name);
+  urdf::JointConstSharedPtr joint = robot->robot_model_.getJoint(joint_name);
   if (!joint)
   {
     ROS_ERROR("SimpleTransmission could not find joint named \"%s\"", joint_name);
@@ -95,7 +95,7 @@ bool SimpleTransmission::initXml(TiXmlElement *elt, Robot *robot)
     }
     else
     {
-      const boost::shared_ptr<const urdf::Joint> joint = robot->robot_model_.getJoint(joint_name);
+      urdf::JointConstSharedPtr joint = robot->robot_model_.getJoint(joint_name);
       if (!joint)
       {
         ROS_ERROR("SimpleTransmission could not find screw joint named \"%s\"", joint_name);
